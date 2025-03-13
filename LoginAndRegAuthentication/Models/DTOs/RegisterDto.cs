@@ -16,6 +16,15 @@ namespace AuthJwtApi.Models.DTOs
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        public string PhoneNumber { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+
+        public string state { get; set; }
+
+
+        public string Address { get; set; }
+
         [Required]
         public string Role { get; set; }  // Accepts "User" or "Admin"
     }

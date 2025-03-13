@@ -22,7 +22,7 @@ public class AuthService : IAuthService
         if (await _context.Users.AnyAsync(u => u.Email == registerDto.Email))
             throw new ArgumentException("Email already exists");
 
-        // Hash password
+        // Hash password    
         var passwordHash = BCrypt.Net.BCrypt.HashPassword(registerDto.Password);
 
         // Create new user
@@ -30,7 +30,12 @@ public class AuthService : IAuthService
         {
             Username = registerDto.Username,
             Email = registerDto.Email,
-            PasswordHash = passwordHash
+            PasswordHash = passwordHash,
+            PhoneNumber = registerDto.PhoneNumber,
+            Country = registerDto.Country,
+            City= registerDto.City,
+            state = registerDto.state,
+            Address = registerDto.Address
         };
 
         // Find the role in the database
